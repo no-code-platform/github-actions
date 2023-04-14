@@ -22,3 +22,5 @@ jobs:
     services: 
       server: 
         image: my-image-name:${{ env.VERSION_TAG }}
+    steps:
+      - uses: actions/checkout@v3
