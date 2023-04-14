@@ -21,6 +21,6 @@ jobs:
     needs: [build]
     services: 
       server: 
-        image: my-image-name:${{ env.VERSION_TAG }}
+        image: redis
     steps:
       - uses: actions/checkout@v3
