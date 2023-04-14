@@ -7,5 +7,5 @@ app.get('/test', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port | new version: ${port}`)
+  console.log(`Example app listening on port | new version | v1: ${port}`)
 })
