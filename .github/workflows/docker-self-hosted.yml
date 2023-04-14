@@ -16,11 +16,11 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:${{ env.VERSION_TAG }}
 
-#   test:
-#     runs-on: self-hosted
-#     needs: [build]
-#     services: 
-#       server: 
-#         image: my-image-name:${{ env.VERSION_TAG }}
-#     steps:
-#       - uses: actions/checkout@v3
+  test:
+    runs-on: self-hosted
+    needs: [build]
+    services: 
+      server: 
+        image: my-image-name:${{ env.VERSION_TAG }}
+    steps:
+      - uses: actions/checkout@v3
