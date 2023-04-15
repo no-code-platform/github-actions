@@ -6,7 +6,7 @@ on:
     branches: [ main ]
   
 env:
-  VERSION_TAG: $(date +%s)
+  PR_NUMBER: ${{ github.event.pull_request.number }}
 
 jobs:
   build:
@@ -14,13 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:${{ env.VERSION_TAG }}
+      run: docker build . --file Dockerfile --tag myapp:${{ env.PR_NUMBER }}
 
-  test:
+  deploy:
     runs-on: self-hosted
     needs: [build]
-    services: 
-      server: 
-        image: redis
     steps:
       - uses: actions/checkout@v3
+      - name: Deploy to k8
+        run: sh ./k8/app-deployment.sh
