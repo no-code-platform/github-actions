@@ -20,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Deploy to k8
-        run: sh ./k8/app-deployment.sh
+        run: sh ./k8/app-deployment.sh ${{ env.PR_NUMBER }}
