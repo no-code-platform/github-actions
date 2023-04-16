@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-pr-PR_NUMBER_PLACEHOLDER
+  name: my-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
-      pr-number: PR_NUMBER_PLACEHOLDER
+      app: my-app
   template:
     metadata:
       labels:
-        app: myapp
-        pr-number: PR_NUMBER_PLACEHOLDER
+        app: my-app
     spec:
       containers:
         - name: myapp
-          image: myapp:PR_NUMBER_PLACEHOLDER
+          image: my-app:2
           ports:
             - containerPort: 8000

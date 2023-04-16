@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress-PR_NUMBER_PLACEHOLDER
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: PR_NUMBER_PLACEHOLDER.design.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: myapp-pr-PR_NUMBER_PLACEHOLDER
+            port:
+              name: http
